@@ -1,6 +1,7 @@
 package Controlador;
 
 import InterfazVisual.Display;
+import Modelo.Facade;
 import Modelo.Proxy;
 import Modelo.Usuario;
 
@@ -17,6 +18,8 @@ public class Principal {
 	
 	private static void poblar() {
 		Proxy pro = Proxy.getInstance();
+	    Facade fac = Facade.getInstance();
+	    
 		pro.add(new Usuario("elma@malon","ici")); //This is the only administrator
 		pro.add(new Usuario("vadim@urod","blyat"));
 		pro.add(new Usuario("frederico@mercurio","eeoo"));
@@ -24,6 +27,13 @@ public class Principal {
 		pro.add(new Usuario("aqua@godess","useless"));
 		pro.add(new Usuario("doom@slayer","rip&tear"));
 		pro.add(new Usuario("maicol@yakson","heehee"));
+		
+		fac.addMuni("Mosquera");
+		fac.addMuni("Funza");
+		fac.addMuni("Cota");
+		
+		fac.rutaprueba();
+		fac.pruebarut();
 		
 	}
 	

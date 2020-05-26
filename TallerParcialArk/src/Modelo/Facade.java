@@ -27,6 +27,11 @@ public class Facade {
 	        return instanciaUnica;
 	    }
 	    
+	    public Facade () {
+	    	this.trans = new HashMap<>();
+	    	this.munici = new ArrayList<>();		
+	    }
+	    
 		 public String dinamicDecrip(String crpted) {
 			 try {
 				 Encrypter objEnc = Encrypter.getInstance();
@@ -98,13 +103,19 @@ public class Facade {
 	    	if(clave.equals("ejecutar")) {
 	    	int i= this.munici.indexOf(munic);
 	    	Composite municipio =munici.get(i);
-	    	municipio.addTransporte(trans.get(placa));
+	    	municipio.addTransporte(trans.get(placa), placa);
 	    	munici.remove(i);
 	    	munici.add(municipio);
 	    	}else {
 	    		System.out.println("llave incorrecta");
 	    	}
 	    }
+	    
+	    public void addMuni(String muni) {
+	    	this.munici.add(new Composite(muni));	
+	    }
+	    
+	    
 	    
 	    @SuppressWarnings("unlikely-arg-type")
 		public void deleteRutaLoc(String plc, String muni, String key) {
@@ -114,7 +125,9 @@ public class Facade {
 	    	if(clave.equals("ejecutar")) {
 	 	    	int i= this.munici.indexOf(munic);
 	 	    	Composite municipio =munici.get(i);
-	 	    	municipio.deleteTrans(trans.get(placa));
+	 	    	municipio.deleteTrans(trans.get(placa), placa);
+	 	   	    munici.remove(i);
+	    	    munici.add(municipio);
 	 	    	}else {
 	 	    		System.out.println("llave incorrecta");
 	 	    	}
@@ -158,24 +171,24 @@ public class Facade {
 	    	if(clave.equals("ejecutar")) {
 	    	 if(paque.startsWith("Bus")) {
 	    		
-	    		cat ="Bus ";
+	    		cat ="Bus";
 	    		plc = paque.substring(4, 10);
 	    		cup = Integer.parseInt(paque.substring(11, 12));
-	    		mod = "Modelo "+paque.substring(13, 17);
-	    		cond = " Condutor "+paque.substring(18); 
-	    		Transporte ruta = new Conductor(cond,new Caracteristicas(mod,new Cupos(cup,new Placa(plc+" ",new ID(cat,new TransDetalle())))));
+	    		mod = "Modelo "+paque.substring(20, 24);
+	    		cond = "Conductor "+paque.substring(35); 
+	    		Transporte ruta = new Conductor(" "+cond,new Caracteristicas(" "+mod,new Cupos(cup,new Placa(plc+" ",new ID(cat+" ",new TransDetalle())))));
 	    		 
 	    		if(trans.containsKey(plc)) return;
 	    	        this.trans.put(plc, ruta);
 	    		
 	    	 }else {
 	    		
-	    		cat ="Wheels ";
+	    		cat ="Wheels";
 	    		plc = paque.substring(7, 13);
 	    		cup = Integer.parseInt(paque.substring(14, 15));
-	    		mod = "Modelo "+paque.substring(16, 20);
-	    		cond = " Condutor "+paque.substring(21); 
-	    		Transporte ruta = new Conductor(cond,new Caracteristicas(mod,new Cupos(cup,new Placa(plc+" ",new ID(cat,new TransDetalle())))));
+	    		mod = "Modelo "+paque.substring(23, 27);
+	    		cond = "Conductor "+paque.substring(37); 
+	    		Transporte ruta = new Conductor(" "+cond,new Caracteristicas(" "+mod,new Cupos(cup,new Placa(plc+" ",new ID(cat+" ",new TransDetalle())))));
 	    		 
 	    		if(trans.containsKey(plc)) return;
 	    	     this.trans.put(plc, ruta);	
@@ -195,29 +208,68 @@ public class Facade {
 	    		this.trans.remove(placa);	 
 	    		if(paque.startsWith("Bus")) {
 		    		
-	    		    cat ="Bus ";
+	    			cat ="Bus";
 		    		plc = paque.substring(4, 10);
 		    		cup = Integer.parseInt(paque.substring(11, 12));
-		    		mod = "Modelo "+paque.substring(13, 17);
-		    		cond = " Condutor "+paque.substring(18); 
-		    		Transporte ruta = new Conductor(cond,new Caracteristicas(mod,new Cupos(cup,new Placa(plc+" ",new ID(cat,new TransDetalle())))));
+		    		mod = "Modelo "+paque.substring(20, 24);
+		    		cond = "Conductor "+paque.substring(35); 
+		    		Transporte ruta = new Conductor(" "+cond,new Caracteristicas(" "+mod,new Cupos(cup,new Placa(plc+" ",new ID(cat+" ",new TransDetalle())))));
 		            
 		    		this.trans.put(plc, ruta);
 		    		
 		    	}else {
-		    		
-		    		cat ="Wheels ";
+		    		cat ="Wheels";
 		    		plc = paque.substring(7, 13);
 		    		cup = Integer.parseInt(paque.substring(14, 15));
-		    		mod = "Modelo "+paque.substring(16, 20);
-		    		cond = " Condutor "+paque.substring(21); 
-		    		Transporte ruta = new Conductor(cond,new Caracteristicas(mod,new Cupos(cup,new Placa(plc+" ",new ID(cat,new TransDetalle())))));
-		    	    
+		    		mod = "Modelo "+paque.substring(23, 27);
+		    		cond = "Conductor "+paque.substring(37); 
+		    		Transporte ruta = new Conductor(" "+cond,new Caracteristicas(" "+mod,new Cupos(cup,new Placa(plc+" ",new ID(cat+" ",new TransDetalle())))));
+		    		 
+		    		
 		    		this.trans.put(plc, ruta);	
 		    	} 	
 	    	}else {
 	    		System.out.println("llave incorrecta");
 	    	}
 	    }
+	    
+	 public void rutaprueba() {
+		 String cat,plc,mod,cond;
+	    int cup;
+	    cat ="Wheels";
+		plc = "JKA877";
+		cup = 4;
+		mod = "Modelo "+"2017";
+		cond = "Conductor "+"El Jajas";
+		 Transporte ruta = new Conductor(" "+cond,new Caracteristicas(" "+mod,new Cupos(cup,new Placa(plc+" ",new ID(cat+" ",new TransDetalle())))));
+         
+ 		this.trans.put(plc, ruta);
+ 		
+	 }  
+	 
+	 public void pruebarut() {
+		/*
+		 String cat,plc,mod,cond;
+		 int cup;
+		 */
+		 
+		 Transporte i = this.trans.get("JKA877");
+		 String paque =i.getCaracteristicas();
+		 System.out.println(paque);
+		/*
+		    cat ="Wheels";
+    		plc = paque.substring(7, 13);
+    		cup = Integer.parseInt(paque.substring(14, 15));
+    		mod = "Modelo "+paque.substring(23, 27);
+    		cond = "Conductor "+paque.substring(37); 
+		 
+		 
+		 System.out.println(cat);
+		 System.out.println(plc);
+		 System.out.println(cup);
+		 System.out.println(mod);
+		 System.out.println(cond);
+		 */
+	 }
 	    
 }

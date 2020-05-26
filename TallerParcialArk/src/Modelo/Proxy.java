@@ -12,7 +12,7 @@ public class Proxy {
     Proxy prox; 
     
     public Proxy () {
-        this.usuarios=new HashMap<>();;
+        this.usuarios=new HashMap<>();
 
     }
     public static Proxy getInstance(){

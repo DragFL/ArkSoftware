@@ -41,7 +41,7 @@ public class LoginPanel extends JPanel {
 		JLabel guelcom = new JLabel("Bienvenido");
 		guelcom.setFont(new Font("Lucida Grande", Font.BOLD, 22));
 		guelcom.setHorizontalAlignment(SwingConstants.CENTER);
-		guelcom.setBounds(107, 46, 164, 40);
+		guelcom.setBounds(147, 43, 164, 40);
 		add(guelcom);
 		
 		mailUs = new JTextField();
@@ -53,7 +53,7 @@ public class LoginPanel extends JPanel {
 				 mailUs.setText("");
 			  }});
 		mailUs.setColumns(10);
-		mailUs.setBounds(76, 124, 218, 40);
+		mailUs.setBounds(120, 123, 218, 40);
 		add(mailUs);
 		
 		
@@ -66,7 +66,7 @@ public class LoginPanel extends JPanel {
 				 pswUs.setText("");
 			  }});
 		pswUs.setColumns(10);
-		pswUs.setBounds(76, 200, 218, 40);
+		pswUs.setBounds(120, 199, 218, 40);
 		add(pswUs);
 		
 		btnLogin = new JButton("Login");
@@ -80,7 +80,7 @@ public class LoginPanel extends JPanel {
 				}
 			}
 		});
-		btnLogin.setBounds(120, 281, 133, 40);
+		btnLogin.setBounds(166, 281, 133, 40);
 		add(btnLogin);
 		
 

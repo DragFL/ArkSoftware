@@ -21,6 +21,8 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.EtchedBorder;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class PanelUsPred extends JPanel {
@@ -39,16 +41,17 @@ public class PanelUsPred extends JPanel {
 	        return instanciaUnica;
 	}
 	public PanelUsPred() {
-		setBorder(new TitledBorder(null, "Panel de administrador", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Panel de Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Bienvenido de nuevo jefe");
-		lblNewLabel.setBounds(102, 23, 161, 22);
+		JLabel lblNewLabel = new JLabel("Administración de usuarios");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(117, 23, 213, 22);
 		add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel.setBounds(149, 77, 215, 306);
+		panel.setBounds(149, 77, 281, 306);
 		add(panel);
 		panel.setLayout(new BorderLayout(0, 0));
 		
@@ -86,16 +89,16 @@ public class PanelUsPred extends JPanel {
 				}
 			}
 		});
-		btnLoad.setBounds(6, 77, 117, 29);
+		btnLoad.setBounds(313, 43, 117, 29);
 		add(btnLoad);
 		
 		mailUs = new JTextField();
-		mailUs.setBounds(6, 146, 130, 26);
+		mailUs.setBounds(6, 105, 130, 26);
 		add(mailUs);
 		mailUs.setColumns(10);
 		
 		pswUs = new JTextField();
-		pswUs.setBounds(6, 205, 130, 26);
+		pswUs.setBounds(6, 171, 130, 26);
 		add(pswUs);
 		pswUs.setColumns(10);
 		
@@ -113,7 +116,7 @@ public class PanelUsPred extends JPanel {
 				}
 			}
 		});
-		btnAdd.setBounds(6, 243, 117, 29);
+		btnAdd.setBounds(6, 210, 117, 29);
 		add(btnAdd);
 		
 		JButton btnEdit = new JButton("Editar");
@@ -130,7 +133,7 @@ public class PanelUsPred extends JPanel {
 				}
 			}
 		});
-		btnEdit.setBounds(6, 284, 117, 29);
+		btnEdit.setBounds(6, 239, 117, 29);
 		add(btnEdit);
 		
 		JButton btnDelete = new JButton("Eliminiar");
@@ -147,15 +150,15 @@ public class PanelUsPred extends JPanel {
 				}
 			}
 		});
-		btnDelete.setBounds(6, 325, 117, 29);
+		btnDelete.setBounds(6, 270, 117, 29);
 		add(btnDelete);
 		
 		JLabel lblNewLabel_1 = new JLabel("Correo :");
-		lblNewLabel_1.setBounds(6, 118, 61, 16);
+		lblNewLabel_1.setBounds(6, 77, 61, 16);
 		add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Contraseña :");
-		lblNewLabel_2.setBounds(6, 177, 79, 16);
+		lblNewLabel_2.setBounds(6, 143, 79, 16);
 		add(lblNewLabel_2);
 		
 		JButton btnCutoff = new JButton("Desconectar");
@@ -171,18 +174,18 @@ public class PanelUsPred extends JPanel {
 		btnCutoff.setBounds(6, 365, 117, 29);
 		add(btnCutoff);	
 		
-		JButton btnRutas = new JButton("Rutas");
-		btnRutas.addActionListener(new ActionListener() {
+		JButton btnBack = new JButton("Volver");
+		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					
+					displei.goback();
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
 			}
 		});
-		btnRutas.setBounds(247, 46, 117, 29);
-		add(btnRutas);
+		btnBack.setBounds(6, 332, 117, 29);
+		add(btnBack);
 		
 
 	}
