@@ -21,6 +21,10 @@ public class Composite implements Transporte {
     	this.rutas.remove(it);
     	this.placas.remove(ip);
     }
+    
+    public String getName() {
+    	return name;
+    }
 
 	@Override
 	public String getCaracteristicas() {

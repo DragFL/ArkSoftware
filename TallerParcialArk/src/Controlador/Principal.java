@@ -12,13 +12,14 @@ public class Principal {
 		Display ctrl = Display.getInstance();
 		ctrl.setVisible(true);
 		ctrl.instanciarVista();
-
+	
 	}
 
 	
 	private static void poblar() {
 		Proxy pro = Proxy.getInstance();
 	    Facade fac = Facade.getInstance();
+	    
 	    
 		pro.add(new Usuario("elma@malon","ici")); //This is the only administrator
 		pro.add(new Usuario("vadim@urod","blyat"));
@@ -34,6 +35,9 @@ public class Principal {
 		
 		fac.rutaprueba();
 		fac.pruebarut();
+		
+		
+		
 		
 	}
 	

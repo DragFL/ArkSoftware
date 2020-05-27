@@ -52,12 +52,12 @@ public class PanelUsNorm extends JPanel {
 				}
 			}
 		});
-		btnBuscarNorm.setBounds(121, 346, 126, 35);
+		btnBuscarNorm.setBounds(167, 346, 126, 35);
 		add(btnBuscarNorm);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(UIManager.getColor("Button.disabledText"), 2, true));
-		panel.setBounds(6, 19, 358, 313);
+		panel.setBounds(6, 19, 438, 313);
 		add(panel);
 		panel.setLayout(new BorderLayout(0, 0));
 		
@@ -90,17 +90,17 @@ public class PanelUsNorm extends JPanel {
 		btnCutoff.setBounds(6, 349, 106, 29);
 		add(btnCutoff);
 		
-		JButton btnRutas = new JButton("Rutas");
+		JButton btnRutas = new JButton("Volver");
 		btnRutas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					
+					displei.goback();
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
 			}
 		});
-		btnRutas.setBounds(258, 349, 106, 29);
+		btnRutas.setBounds(338, 349, 106, 29);
 		add(btnRutas);
 		
 	}

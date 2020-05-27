@@ -1,29 +1,31 @@
 package InterfazVisual;
 
-import javax.swing.JPanel;
-import javax.swing.border.TitledBorder;
-import javax.swing.border.EtchedBorder;
 import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("serial")
-public class Menus extends JPanel {
+public class Menup extends JPanel {
 
-	private static Menus instanciaUnica = null;
+
+	private static Menup instanciaUnica = null;
 	private static Display displei = Display.getInstance();
 	
-	public static Menus getInstance() {
+	public static Menup getInstance() {
 		   if(instanciaUnica==null)
-	            instanciaUnica=new Menus();
+	            instanciaUnica=new Menup();
 	        return instanciaUnica;
 	}
 	
-	public Menus() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Menu del Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+	public Menup() {
+		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Menu de selecci\u00F3n", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 		JButton btnUsuarios = new JButton("Usuarios");
@@ -37,11 +39,11 @@ public class Menus extends JPanel {
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("Bienvenido de nuevo Jefe");
+		JLabel lblNewLabel = new JLabel("Bienvenido de nuevo ");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-		lblNewLabel.setBounds(114, 38, 246, 32);
+		lblNewLabel.setBounds(136, 35, 246, 32);
 		add(lblNewLabel);
-		btnUsuarios.setBounds(137, 93, 179, 45);
+		btnUsuarios.setBounds(136, 222, 179, 45);
 		add(btnUsuarios);
 		
 		JButton btnRutas = new JButton("Rutas");
@@ -54,10 +56,10 @@ public class Menus extends JPanel {
 				}
 			}
 		});
-		btnRutas.setBounds(137, 158, 179, 45);
+		btnRutas.setBounds(136, 287, 179, 45);
 		add(btnRutas);
 		
-		JButton btnAsignar = new JButton("Asignar");
+		JButton btnAsignar = new JButton("Cupos");
 		btnAsignar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -67,10 +69,10 @@ public class Menus extends JPanel {
 				}
 			}
 		});
-		btnAsignar.setBounds(137, 220, 179, 45);
+		btnAsignar.setBounds(136, 165, 179, 45);
 		add(btnAsignar);
 		
-		JButton btnConsulta = new JButton("Consultas");
+		JButton btnConsulta = new JButton("Localidades");
 		btnConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -80,7 +82,7 @@ public class Menus extends JPanel {
 				}
 			}
 		});
-		btnConsulta.setBounds(137, 288, 179, 45);
+		btnConsulta.setBounds(136, 108, 179, 45);
 		add(btnConsulta);
 		
 		JButton btnCutoff = new JButton("Desconectar");
@@ -98,3 +100,4 @@ public class Menus extends JPanel {
 
 	}
 }
+

@@ -19,7 +19,7 @@ public class Facade {
 	 private static Facade instanciaUnica= null;
 	   
 	    private HashMap<String,Transporte> trans;
-	    private ArrayList<Composite> munici;
+	    private HashMap<String,Composite> munici;
 	   
 	    public static Facade getInstance(){
 	        if(instanciaUnica==null)
@@ -29,7 +29,7 @@ public class Facade {
 	    
 	    public Facade () {
 	    	this.trans = new HashMap<>();
-	    	this.munici = new ArrayList<>();		
+	    	this.munici = new HashMap<>();		
 	    }
 	    
 		 public String dinamicDecrip(String crpted) {
@@ -93,46 +93,71 @@ public class Facade {
 	     }
 	    }
 	    
+	    
 	    //Add/Delete route from local
 	    
-	    @SuppressWarnings("unlikely-arg-type")
-		public void addRutaLoc(String plc, String muni,String key) {
+	    public void addRutaLoc(String plc, String muni,String key) {
 	    	String clave = dinamicDecrip(key);
 	    	String placa = dinamicDecrip(plc);
 	    	String munic = dinamicDecrip(muni);
 	    	if(clave.equals("ejecutar")) {
-	    	int i= this.munici.indexOf(munic);
-	    	Composite municipio =munici.get(i);
-	    	municipio.addTransporte(trans.get(placa), placa);
-	    	munici.remove(i);
-	    	munici.add(municipio);
+	    	 Composite municipio =munici.get(munic);
+	    	 municipio.addTransporte(trans.get(placa), placa);
+	    	 munici.remove(munic);
+	    	 munici.put(munic,municipio);
+	    	 System.out.println("se agrego la ruta a la localidad");
 	    	}else {
 	    		System.out.println("llave incorrecta");
 	    	}
 	    }
-	    
-	    public void addMuni(String muni) {
-	    	this.munici.add(new Composite(muni));	
-	    }
-	    
-	    
-	    
-	    @SuppressWarnings("unlikely-arg-type")
-		public void deleteRutaLoc(String plc, String muni, String key) {
+	       
+	    public void deleteRutaLoc(String plc, String muni, String key) {
 	    	String clave = dinamicDecrip(key);
 	    	String placa = dinamicDecrip(plc);
 	    	String munic = dinamicDecrip(muni);
 	    	if(clave.equals("ejecutar")) {
-	 	    	int i= this.munici.indexOf(munic);
-	 	    	Composite municipio =munici.get(i);
+	    		Composite municipio =munici.get(munic);
 	 	    	municipio.deleteTrans(trans.get(placa), placa);
-	 	   	    munici.remove(i);
-	    	    munici.add(municipio);
+	 	   	    munici.remove(munic);
+	    	    munici.put(munic,municipio);
 	 	    	}else {
 	 	    		System.out.println("llave incorrecta");
 	 	    	}
 	    }
+	    
+	    public ArrayList<Composite> buscarLoc(String key) {
+	    	ArrayList<Composite> locs = new ArrayList<Composite>();
+	    	String clave = dinamicDecrip(key);
+	    	if(clave.equals("ejecutar")) {
+	    		for (Composite i : this.munici.values()) { locs.add(i);}
+	    
+	    	return locs;	
+	    	} else {
+ 	    		System.out.println("llave incorrecta");
+ 	    		return locs;
+ 	    	}
+	    }
+	    
+	    public Composite espcLoc(String muni, String key) {
+	      String clave = dinamicDecrip(key);	
+	      String munic = dinamicDecrip(muni);
+	      Composite municipio = null;
+	      if(clave.equals("ejecutar")) {
+	    	    municipio =munici.get(munic);
+	 	   	    return municipio;
+	 	    	}else {
+	 	    		System.out.println("llave incorrecta");
+	 	    	return municipio;
+	 	    	}
+	    	
+	    }
+
+	    public void addMuni(String muni) {
+	    	Composite local = new Composite(muni);
+	    	this.munici.put(local.getName(),local);	
+	    }
 	       
+	    
 	    //CRUD Routes
 	    
 	    public void elimRuta(String plc, String key){
@@ -144,8 +169,7 @@ public class Facade {
 	    		System.out.println("llave incorrecta");
 	    	}
 	    }
-	    
-	    
+	       
 	    public ArrayList<String> buscRutas(String key) {
 	    	ArrayList<String> rutas = new ArrayList<String>();
 	    	String clave = dinamicDecrip(key);
@@ -161,7 +185,6 @@ public class Facade {
 		     }
 	    	
 	    }
-	    
 	    
 	    public void crearRuta(String paq,String key) {
 	    	String cat,plc,mod,cond;

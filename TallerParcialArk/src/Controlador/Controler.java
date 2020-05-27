@@ -3,6 +3,8 @@ package Controlador;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+
+import Decorator.Composite;
 import Modelo.Encrypter;
 import Modelo.Facade;
 import Modelo.Proxy;
@@ -113,5 +115,17 @@ public class Controler {
 	  fac.deleteRutaLoc(placa, munic, dinamicCrip());
   }
   
+  public ArrayList<Composite> obtnLoc(){
+	  Facade fac = Facade.getInstance();
+	  ArrayList<Composite> locs =fac.buscarLoc(dinamicCrip());
+	  return locs;
+  }
+  
+  public Composite esLoc(String muni) {
+	  Facade fac = Facade.getInstance();
+	  String munic = dinamicDataCrip(muni);
+	  Composite locEsp = fac.espcLoc(munic, dinamicCrip());
+	  return locEsp;
+  }
   
 }

@@ -47,7 +47,7 @@ public class LoginPanel extends JPanel {
 		mailUs = new JTextField();
 		mailUs.setHorizontalAlignment(SwingConstants.CENTER);
 		mailUs.setForeground(UIManager.getColor("Button.disabledText"));
-		mailUs.setText("Correo");
+		mailUs.setText("elma@malon");
 		mailUs.addMouseListener(new MouseAdapter(){	
 			  public void mouseClicked(MouseEvent e) {
 				 mailUs.setText("");
@@ -58,7 +58,7 @@ public class LoginPanel extends JPanel {
 		
 		
 		pswUs = new JTextField();
-		pswUs.setText("Contraseña");
+		pswUs.setText("ici");
 		pswUs.setHorizontalAlignment(SwingConstants.CENTER);
 		pswUs.setForeground(Color.GRAY);
 		pswUs.addMouseListener(new MouseAdapter(){	

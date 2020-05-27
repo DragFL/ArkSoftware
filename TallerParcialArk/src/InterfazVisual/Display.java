@@ -23,6 +23,12 @@ public class Display extends JFrame{
 	private static PanelUsNorm panel2;
 	private static Menus menus;
 	private static RutasA rutasa;
+	private static Asigs asigs;
+	private static Consults consuls;
+	private static Menup menup;
+	private static RutasB rutasb;
+	private static Asigp asigp;
+	private static Consultp consulp;
     private boolean state = false ;
     
     public static Display getInstance() {
@@ -71,7 +77,13 @@ public class Display extends JFrame{
 			Display.setPanelUsPre(PanelUsPred.getInstance());
 			Display.setMenus(Menus.getInstance());
 			Display.setRutasa(RutasA.getInstance());
+			Display.setAsigs(Asigs.getInstance());
+			Display.setConsuls(Consults.getInstance());
 			
+			Display.setMenup(Menup.getInstance());
+			Display.setRutasb(RutasB.getInstance());
+			Display.setAsigp(Asigp.getInstance());
+			Display.setConsulp(Consultp.getInstance());
 			Contenido.setViewportView(panelLog);
 		 }	
 	 
@@ -82,10 +94,11 @@ public class Display extends JFrame{
 			 System.out.println("Acceso concedido su llave es: "+ msj);
 			 if(user.getMail().equals("elma@malon")) {
 			  Contenido.setViewportView(menus);
+			  probarAdd();
 			  state= true;
 			 }
 			 else {
-			  Contenido.setViewportView(panel2);
+			  Contenido.setViewportView(menup);
 			  state = false;
 			  
 			 }
@@ -104,7 +117,7 @@ public class Display extends JFrame{
 			  Contenido.setViewportView(menus);
 		  }
 		  else {
-			  Contenido.setViewportView(panel1);
+			  Contenido.setViewportView(menup);
 		  }
 	  }
 	  
@@ -122,26 +135,31 @@ public class Display extends JFrame{
 			  Contenido.setViewportView(rutasa);
 		  }
 		  else {
-			  Contenido.setViewportView(panel2);
+			  Contenido.setViewportView(rutasb);
 		  }
 	  }
       
 	  public void asigPane() {
 		  if (state == true) {
-			  Contenido.setViewportView(panel1);
+			  Contenido.setViewportView(asigs);
 		  }
 		  else {
-			  Contenido.setViewportView(panel2);
+			  Contenido.setViewportView(consulp);
 		  }
 	  }
 	  
 	  public void srchPane() {
 		  if (state == true) {
-			  Contenido.setViewportView(panel1);
+			  Contenido.setViewportView(consuls);
 		  }
 		  else {
-			  Contenido.setViewportView(panel2);
+			  Contenido.setViewportView(asigp);
 		  }
+	  }
+	  
+	  public void probarAdd() {
+			controla.rutaLocalpls("JKA877","Cota");
+
 	  }
 	  
 	  public static void setLoginPan(LoginPanel intance) {
@@ -153,10 +171,30 @@ public class Display extends JFrame{
 	  public static void setPanelUsNor(PanelUsNorm intance) {
 		  panel2 = intance;
 	  }
+	  
 	  public static void setMenus(Menus intance) {
 		   menus = intance;
 	  }
 	  public static void setRutasa(RutasA intance) {
 		   rutasa = intance;
+	  }
+	  public static void setAsigs(Asigs intance) {
+		   asigs = intance;
+	  }
+	  public static void setConsuls(Consults intance) {
+		   consuls = intance;
+	  }
+	  
+	  public static void setMenup(Menup intance) {
+		   menup = intance;
+	  }
+	  public static void setRutasb(RutasB intance) {
+		   rutasb = intance;
+	  }
+	  public static void setAsigp(Asigp intance) {
+		   asigp = intance;
+	  }
+	  public static void setConsulp(Consultp intance) {
+		   consulp = intance;
 	  }
 }
