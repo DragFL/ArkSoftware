@@ -1,5 +1,6 @@
 package InterfazVisual;
 
+import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -17,7 +18,7 @@ import Controlador.Controler;
 
 
 @SuppressWarnings("serial")
-public class RutasB extends JPanel {
+public class RutasB extends Applet {
 
 	    private static RutasB instanciaUnica =null;
 	    private static Display displei = Display.getInstance();
@@ -33,7 +34,7 @@ public class RutasB extends JPanel {
 	}
 	
 	public RutasB() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Rutas", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		//setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Rutas", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 	

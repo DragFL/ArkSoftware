@@ -1,5 +1,6 @@
 package InterfazVisual;
 
+import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -20,7 +21,7 @@ import Controlador.Controler;
 import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
-public class RutasA extends JPanel {
+public class RutasA extends Applet {
 
 	private static RutasA instanciaUnica = null;
 	private static Display displei = Display.getInstance();
@@ -40,7 +41,7 @@ public class RutasA extends JPanel {
 	        return instanciaUnica;
 	}
 	public RutasA() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Panel de Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		//setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Panel de Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Administración de rutas");

@@ -1,5 +1,6 @@
 package InterfazVisual;
 
+import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -12,7 +13,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("serial")
-public class Menup extends JPanel {
+public class Menup extends Applet {
 
 
 	private static Menup instanciaUnica = null;
@@ -25,7 +26,7 @@ public class Menup extends JPanel {
 	}
 	
 	public Menup() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Menu de selecci\u00F3n", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		//setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Menu de selecci\u00F3n", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 		JButton btnUsuarios = new JButton("Usuarios");

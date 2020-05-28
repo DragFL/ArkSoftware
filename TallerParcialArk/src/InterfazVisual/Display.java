@@ -3,16 +3,19 @@ package InterfazVisual;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JApplet;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import Controlador.Controler;
+import Modelo.Facade;
+import Modelo.Proxy;
 import Modelo.Usuario;
 
 import javax.swing.JScrollPane;
 
 @SuppressWarnings("serial")
-public class Display extends JFrame{
+public class Display extends JApplet{
     
 	private static Display instanciaUnica=null;
 	private JScrollPane Contenido;
@@ -56,7 +59,7 @@ public class Display extends JFrame{
 	 * Create the frame.
 	 */
 	public Display() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 470, 420);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -65,6 +68,9 @@ public class Display extends JFrame{
 		
 	    Contenido = new JScrollPane();
 		contentPane.add(Contenido, BorderLayout.CENTER);
+		poblar();
+		instanciaUnica = this ;
+		this.instanciarVista();
 		
 		
 		
@@ -85,14 +91,14 @@ public class Display extends JFrame{
 			Display.setAsigp(Asigp.getInstance());
 			Display.setConsulp(Consultp.getInstance());
 			Contenido.setViewportView(panelLog);
-		 }	
+		 }
 	 
 	  public void login(Usuario user) throws Exception {	
 			 
 			 String msj = controla.logi().accederSistema(user);
 			 
 			 System.out.println("Acceso concedido su llave es: "+ msj);
-			 if(user.getMail().equals("elma@malon")) {
+			 if(user.getMail().equals("admin@gmail.com")) {
 			  Contenido.setViewportView(menus);
 			  probarAdd();
 			  state= true;
@@ -159,6 +165,11 @@ public class Display extends JFrame{
 	  
 	  public void probarAdd() {
 			controla.rutaLocalpls("JKA877","Cota");
+			controla.rutaLocalpls("ANF670","Cota");
+			controla.rutaLocalpls("LSD420","Mosquera");
+			controla.rutaLocalpls("PÑE024","Funza");
+			controla.rutaLocalpls("WFI923","Funza");
+			controla.rutaLocalpls("QTN145","Funza");
 
 	  }
 	  
@@ -197,4 +208,37 @@ public class Display extends JFrame{
 	  public static void setConsulp(Consultp intance) {
 		   consulp = intance;
 	  }
+	  
+		private static void poblar() {
+			Proxy pro = Proxy.getInstance();
+		    Facade fac = Facade.getInstance();
+		    
+		    
+			pro.add(new Usuario("admin@gmail.com","admin")); //This is the only administrator
+			pro.add(new Usuario("vadim@hotmail.com","blyat"));
+			pro.add(new Usuario("frederico@yahoo.com","eeoo"));
+			pro.add(new Usuario("bakuritsu@gmail.com","megumin"));
+			pro.add(new Usuario("aqua@hotmail.com","useless"));
+			pro.add(new Usuario("doom@yahoo.com","slayer"));
+			pro.add(new Usuario("maicol@yakson","heehee"));
+			pro.add(new Usuario("rober@hotmail.com","migato"));
+			pro.add(new Usuario("nicol@gmail.com","paleta"));
+			pro.add(new Usuario("juan@yahoo.com","auto"));
+			
+			fac.addMuni("Mosquera");
+			fac.addMuni("Funza");
+			fac.addMuni("Cota");
+			fac.addMuni("Suba");
+			fac.addMuni("Madrid");
+			fac.addMuni("Faca");
+			fac.addMuni("Kenedy");
+			fac.addMuni("Chapinero");
+			fac.addMuni("Chia");
+			
+			fac.rutaprueba();
+			
+			
+			
+			
+		}
 }

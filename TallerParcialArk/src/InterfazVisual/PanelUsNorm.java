@@ -2,6 +2,8 @@ package InterfazVisual;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
+
+import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +22,7 @@ import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 
 @SuppressWarnings("serial")
-public class PanelUsNorm extends JPanel {
+public class PanelUsNorm extends Applet {
 
     private static PanelUsNorm instanciaUnica =null;
     private static Display displei = Display.getInstance();
@@ -38,7 +40,7 @@ public class PanelUsNorm extends JPanel {
 	
 	
 	public PanelUsNorm() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Usuarios", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		//setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Usuarios", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 	

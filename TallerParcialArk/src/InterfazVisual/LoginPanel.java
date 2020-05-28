@@ -13,11 +13,13 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+
+import java.applet.Applet;
 import java.awt.Color;
 import javax.swing.JButton;
 
 @SuppressWarnings("serial")
-public class LoginPanel extends JPanel {
+public class LoginPanel extends Applet {
 	
 	private static LoginPanel instanciaUnica =null;
 	private static Display displei = Display.getInstance();
@@ -31,11 +33,9 @@ public class LoginPanel extends JPanel {
 	            instanciaUnica=new LoginPanel();
 	        return instanciaUnica;
 	}
-	/**
-	 * Create the panel.
-	 */
+	
 	public LoginPanel() {
-		setBorder(new TitledBorder(null, "Arquitectura de sfotware", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		//setBorder(new TitledBorder(null, "Arquitectura de sfotware", TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		setLayout(null);
 		
 		JLabel guelcom = new JLabel("Bienvenido");
@@ -47,7 +47,7 @@ public class LoginPanel extends JPanel {
 		mailUs = new JTextField();
 		mailUs.setHorizontalAlignment(SwingConstants.CENTER);
 		mailUs.setForeground(UIManager.getColor("Button.disabledText"));
-		mailUs.setText("elma@malon");
+		mailUs.setText("Correo");
 		mailUs.addMouseListener(new MouseAdapter(){	
 			  public void mouseClicked(MouseEvent e) {
 				 mailUs.setText("");
@@ -58,7 +58,7 @@ public class LoginPanel extends JPanel {
 		
 		
 		pswUs = new JTextField();
-		pswUs.setText("ici");
+		pswUs.setText("Contraseña");
 		pswUs.setHorizontalAlignment(SwingConstants.CENTER);
 		pswUs.setForeground(Color.GRAY);
 		pswUs.addMouseListener(new MouseAdapter(){	

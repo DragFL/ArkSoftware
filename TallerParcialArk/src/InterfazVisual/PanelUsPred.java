@@ -15,7 +15,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-
+import java.applet.Applet;
 import java.awt.BorderLayout;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -25,7 +25,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
-public class PanelUsPred extends JPanel {
+public class PanelUsPred extends Applet {
 	private static PanelUsPred instanciaUnica = null;
 	private static Display displei = Display.getInstance();
 	private Controler controla = Controler.getInstance();
@@ -41,7 +41,7 @@ public class PanelUsPred extends JPanel {
 	        return instanciaUnica;
 	}
 	public PanelUsPred() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Panel de Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		//setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Panel de Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Administración de usuarios");

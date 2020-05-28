@@ -1,5 +1,6 @@
 package InterfazVisual;
 
+import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -22,7 +23,7 @@ import javax.swing.border.TitledBorder;
 import Controlador.Controler;
 
 @SuppressWarnings("serial")
-public class Consultp extends JPanel {
+public class Consultp extends Applet {
 	private static Consultp instanciaUnica = null;
 	private static Display displei = Display.getInstance();
 	private Controler controla = Controler.getInstance();
@@ -42,7 +43,7 @@ public class Consultp extends JPanel {
 	}
 	
 	public Consultp() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Reservaci\u00F3n de cupos", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		//setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Reservaci\u00F3n de cupos", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("PIde cupo para tu ruta");

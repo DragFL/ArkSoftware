@@ -1,11 +1,13 @@
 package Controlador;
 
+import java.applet.Applet;
+
 import InterfazVisual.Display;
 import Modelo.Facade;
 import Modelo.Proxy;
 import Modelo.Usuario;
 
-public class Principal {
+public class Principal extends Applet{
 
 	public static void main(String[] args) {
 		poblar();
@@ -34,7 +36,6 @@ public class Principal {
 		fac.addMuni("Cota");
 		
 		fac.rutaprueba();
-		fac.pruebarut();
 		
 		
 		

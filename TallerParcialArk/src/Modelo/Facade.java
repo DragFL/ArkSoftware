@@ -257,42 +257,31 @@ public class Facade {
 	    }
 	    
 	 public void rutaprueba() {
-		 String cat,plc,mod,cond;
-	    int cup;
-	    cat ="Wheels";
-		plc = "JKA877";
-		cup = 4;
-		mod = "Modelo "+"2017";
-		cond = "Conductor "+"El Jajas";
-		 Transporte ruta = new Conductor(" "+cond,new Caracteristicas(" "+mod,new Cupos(cup,new Placa(plc+" ",new ID(cat+" ",new TransDetalle())))));
-         
- 		this.trans.put(plc, ruta);
+	
+		 Transporte ruta1 = new Conductor(" Conductor Roberto Carlos",new Caracteristicas(" Modelo 2017",new Cupos(4,new Placa("JKA877 ",new ID("Wheels ",new TransDetalle())))));
+		 Transporte ruta2 = new Conductor(" Conductor Enrique Segoviano",new Caracteristicas(" Modelo 2000",new Cupos(6,new Placa("WFI923 ",new ID("Wheels ",new TransDetalle())))));
+		 Transporte ruta3 = new Conductor(" Conductor Romeo Santo",new Caracteristicas(" Modelo 1995",new Cupos(9,new Placa("HGB322 ",new ID("Bus ",new TransDetalle())))));
+		 Transporte ruta4 = new Conductor(" Conductor Alan Brito",new Caracteristicas(" Modelo 2012",new Cupos(2,new Placa("LSD420 ",new ID("Wheels ",new TransDetalle())))));
+		 Transporte ruta5 = new Conductor(" Conductor Armando Casas",new Caracteristicas(" Modelo 2020",new Cupos(8,new Placa("ANF670 ",new ID("Bus ",new TransDetalle())))));
+		 Transporte ruta6 = new Conductor(" Conductor Ismael Calvo",new Caracteristicas(" Modelo 2019",new Cupos(4,new Placa("FKM234 ",new ID("Wheels ",new TransDetalle())))));
+		 Transporte ruta7 = new Conductor(" Conductor Hurtado Honesto",new Caracteristicas(" Modelo 2013",new Cupos(7,new Placa("FGG034 ",new ID("Bus ",new TransDetalle())))));
+		 Transporte ruta8 = new Conductor(" Conductor Richard Nixon",new Caracteristicas(" Modelo 2009",new Cupos(9,new Placa("PÑE024 ",new ID("Bus ",new TransDetalle())))));
+		 Transporte ruta9 = new Conductor(" Conductor Casimiro Buenavista",new Caracteristicas(" Modelo 2003",new Cupos(1,new Placa("KIL421 ",new ID("Wheels ",new TransDetalle())))));
+		 Transporte ruta0 = new Conductor(" Conductor Elna Vajas",new Caracteristicas(" Modelo 2015",new Cupos(5,new Placa("QTN145 ",new ID("Bus ",new TransDetalle())))));
+	                              
+ 		this.trans.put("JKA877", ruta1);
+ 		this.trans.put("WFI923", ruta2);
+ 		this.trans.put("HGB322", ruta3);
+ 		this.trans.put("LSD420", ruta4);
+ 		this.trans.put("ANF670", ruta5);
+ 		this.trans.put("FKM234", ruta6);
+ 		this.trans.put("FGG034", ruta7);
+ 		this.trans.put("PÑE024", ruta8);
+ 		this.trans.put("KIL421", ruta9);
+ 		this.trans.put("QTN145", ruta0);
  		
 	 }  
 	 
-	 public void pruebarut() {
-		/*
-		 String cat,plc,mod,cond;
-		 int cup;
-		 */
-		 
-		 Transporte i = this.trans.get("JKA877");
-		 String paque =i.getCaracteristicas();
-		 System.out.println(paque);
-		/*
-		    cat ="Wheels";
-    		plc = paque.substring(7, 13);
-    		cup = Integer.parseInt(paque.substring(14, 15));
-    		mod = "Modelo "+paque.substring(23, 27);
-    		cond = "Conductor "+paque.substring(37); 
-		 
-		 
-		 System.out.println(cat);
-		 System.out.println(plc);
-		 System.out.println(cup);
-		 System.out.println(mod);
-		 System.out.println(cond);
-		 */
-	 }
+
 	    
 }

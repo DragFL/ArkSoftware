@@ -1,5 +1,6 @@
 package InterfazVisual;
 
+import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -23,7 +24,7 @@ import Controlador.Controler;
 import Decorator.Composite;
 
 @SuppressWarnings("serial")
-public class Asigp extends JPanel {
+public class Asigp extends Applet {
 	private static Asigp instanciaUnica = null;
 	private static Display displei = Display.getInstance();
 	private Controler controla = Controler.getInstance();
@@ -41,7 +42,7 @@ public class Asigp extends JPanel {
 	}
 	
 	public Asigp() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Rutas en localidades", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		//setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Rutas en localidades", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Buscar rutas por localidad");

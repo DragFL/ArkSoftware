@@ -3,6 +3,8 @@ package InterfazVisual;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
+
+import java.applet.Applet;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -11,7 +13,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 @SuppressWarnings("serial")
-public class Menus extends JPanel {
+public class Menus extends Applet {
 
 	private static Menus instanciaUnica = null;
 	private static Display displei = Display.getInstance();
@@ -23,7 +25,7 @@ public class Menus extends JPanel {
 	}
 	
 	public Menus() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Menu del Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		//setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Menu del Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 		JButton btnUsuarios = new JButton("Usuarios");

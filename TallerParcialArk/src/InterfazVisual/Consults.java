@@ -1,5 +1,6 @@
 package InterfazVisual;
 
+import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -23,7 +24,7 @@ import Controlador.Controler;
 import Decorator.Composite;
 
 @SuppressWarnings("serial")
-public class Consults extends JPanel {
+public class Consults extends Applet {
 	private static Consults instanciaUnica = null;
 	private static Display displei = Display.getInstance();
 	private Controler controla = Controler.getInstance();
@@ -43,7 +44,7 @@ public class Consults extends JPanel {
 	
 	
 	public Consults() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Panel de Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		//setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Panel de Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Desasignar Rutas");

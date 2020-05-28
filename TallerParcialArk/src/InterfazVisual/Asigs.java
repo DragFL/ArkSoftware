@@ -1,5 +1,6 @@
 package InterfazVisual;
 
+import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -23,7 +24,7 @@ import Controlador.Controler;
 import Decorator.Composite;
 
 @SuppressWarnings("serial")
-public class Asigs extends JPanel {
+public class Asigs extends Applet {
 	private static Asigs instanciaUnica = null;
 	private static Display displei = Display.getInstance();
 	private Controler controla = Controler.getInstance();
@@ -41,7 +42,7 @@ public class Asigs extends JPanel {
 	}
 	
 	public Asigs() {
-		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Panel de Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		//setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Panel de Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Asignación de rutas");
