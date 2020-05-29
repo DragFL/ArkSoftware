@@ -1,4 +1,6 @@
-package PruebasTest;
+package Pruebas;
+
+
 
 import static org.junit.Assert.*;
 
